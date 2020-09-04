@@ -1,0 +1,53 @@
+<!--
+  Generated template for the ReferChefPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-padding>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>      
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="section">  
+<ion-grid class="text-italic" text-center>
+    <ion-icon class="logo" text-center>
+        <img src="img/logo.png" />
+    </ion-icon>
+  <br /> <br />   
+  <p>paste your link anywhere and refer chef</p>
+  <textarea readonly margin-bottom (click)="copyToClipBoard()" id="refral_chef_text">https://Yperkokk.no/?ref={{ user['user_referal_code'] }}</textarea>
+  <h3><span class="border-bottom"><strong>{{ "refer_chef.title" | translate }}</strong></span></h3>
+  <p>{{ "refer_chef.p1" | translate }}</p>
+  <p>{{ "refer_chef.p2" | translate }}
+    {{ "refer_chef.p3" | translate }}
+      </p>
+    <p>{{ "refer_chef.p4" | translate }}.</p>
+  </ion-grid>
+  <ion-grid class="px-2" text-center>
+  <div class="row header">
+      <div class="col border-right" col-3>
+        <span class="border-bottom">Name</span>
+      </div>     
+      <div class="col border-right" text-center col-6>         
+        <span class="border-bottom">Email</span>
+      </div>
+      <div class="col" text-center col-3>         
+        <span class="border-bottom">Status</span>
+      </div>
+  </div>
+  <div class="row" *ngFor="let data of referalData" padding-bottom>
+      <div class="col" col-3>{{ data['fname'] }}</div>   
+      <div class="col" col-6>
+        {{ data['email'] }}
+        <span class="referal-code"><strong>[{{ data['user_referal_code'] }}]</strong></span>
+      </div> 
+      <div class="col" col-3>{{ (data['status']==0)?'Active':'Inactive' }}</div>     
+    </div>
+</ion-grid>
+</ion-content>
+

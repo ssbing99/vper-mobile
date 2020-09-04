@@ -1,0 +1,30 @@
+page-start {
+.box{
+    .item{
+        &.item-md,
+        &.item-ios,
+        &.item-wp{
+            margin: 0px;
+            min-height: 160px;
+            height:100%;
+            .item-inner{                
+                vertical-align: middle;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                min-height: 160px;
+                .input-wrapper{
+                    // -webkit-align-self: baseline; 
+                    // align-self: baseline;
+                }
+                .label-md,
+                .label-ios,
+                .label-wp{
+                    text-overflow:initial;
+                    white-space:normal;
+                }
+            }
+        }
+       
+    }
+}
+}

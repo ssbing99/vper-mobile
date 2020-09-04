@@ -1,0 +1,64 @@
+page-chef-booking-list {
+    .header{
+        .toolbar-md,
+        .toolbar-ios,
+        .toolbar-wp{
+            .toolbar-title-md,
+            .toolbar-title-ios,
+            .toolbar-title-wp{
+                text-align: center;
+                padding-right:0px;
+            }
+        }
+    }
+.box{
+    .column{
+        .item{
+            &.item-md,
+            &.item-ios,
+            &.item-wp{
+              .item-inner{                 
+                  .label-md,
+                  .label-ios,
+                  .label-wp{
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                  }           
+              }
+            }
+          }
+    }
+    .item{
+        &.item-md,
+        &.item-ios,
+        &.item-wp{
+          .item-inner{                 
+              .label-md,
+              .label-ios,
+              .label-wp{
+                justify-content: space-between;
+                align-items: center;
+                display: flex;
+                span{
+                  &.name
+                  {
+                    font-size: 16px;
+                    line-height: 20px;
+                  }
+                }
+              }           
+          }
+        }
+      }
+      ion-icon{
+        &.icon-circle{
+          padding: 4px;
+          img{
+              height: 32px;
+              border-color: #fff;
+          }
+      }
+      }
+    }
+}

@@ -1,0 +1,29 @@
+page-terms {
+    .header-md,
+    .header-ios,
+    .header-wp{     
+        button{
+            position: relative;
+            top:-20px;
+            z-index: 100;
+            background: #fff;
+        }
+    }
+    .header-ios{
+       button{
+        top:0px;
+       }
+    }
+    h3{
+        font-weight: 700;
+        margin-top: 0px;
+    }
+    h4{
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-top: 0px;
+    }
+    p{
+        margin-top:0px;
+    }
+}

@@ -1,0 +1,26 @@
+page-week-pay {
+  .action-col {
+    flex-grow: 0.3;
+  }
+
+  .action-icon {
+    font-weight: bold;
+    background-color: #6a6a6a;
+    color: white;
+    padding: 1px 3px;
+    border-radius: 20px;
+  }
+
+  .accordian-list {
+    background-color: #fefefe;
+    transition: all 0.5s ease;
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  .show-accordian {
+    max-height: 5000px !important;
+    opacity: 1 !important;
+  }
+}

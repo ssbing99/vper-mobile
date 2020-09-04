@@ -1,0 +1,43 @@
+<ion-header class="layout2">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon class="icon3">
+        <img src="img/cap.png" alt="">
+      </ion-icon>
+      Chat User List
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="box section">
+  <ion-grid>
+    <ion-list>
+      <ion-item-group>
+        <ion-item-sliding #item  *ngFor="let list of chatData" class="chat-item">
+          <ion-item>
+            <ion-label (click)="openChatPage(list['id'],list['user_image'])">
+              <ion-icon class="icon-circle">
+                <img src="img/user.png" alt="" *ngIf="!list['user_image']">
+                <img src="{{ list['user_image'] }}" alt="" *ngIf="list['user_image']">
+              </ion-icon>
+              <span class="name">
+                {{ list['fname'] }}
+              </span>
+            </ion-label>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button (click)="deleteChatlist(list.chatId, list.id)" color="danger">
+              <ion-icon name="trash"></ion-icon>
+              Delete
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+
+
+      </ion-item-group>
+    </ion-list>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,40 @@
+page-chef-chat-list {
+    .box{
+        .item{
+            &.item-md,
+            &.item-ios,
+            &.item-wp{
+                .item-inner{
+                    padding:5px 10px;
+                }
+            }
+        }
+        ion-icon{
+            padding: 5px;
+            img{
+                height: 32px;
+            }
+        }
+    }
+
+    .list-ios ion-item-sliding,
+    .list-md ion-item-sliding {
+        background-color: transparent;
+        border-radius: 10px;
+    }
+
+    .list-md ion-item-options {
+        border-bottom: none;
+    }
+
+    .box .item.item-ios,
+    .box .item.item-md {
+        background: rgba(242, 243, 242, 1);
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    .chat-item {
+        margin: 10px 0;
+    }
+}

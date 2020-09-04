@@ -1,0 +1,101 @@
+<!--
+  Generated template for the BookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ "booking.head" | translate }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="box">
+    <ion-grid>
+        <ion-row class="column">
+            <ion-col col-6 (click)="getData('recent')">
+                <ion-item [attr.class]="total_income">
+                    <ion-label>
+                        <ion-icon>
+                            <img src="img/calendar.png" alt="">
+                        </ion-icon>
+                        <span>
+                            {{ "booking.current" | translate }}
+                        </span>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col col-6 (click)="getData('past')">
+                <ion-item [attr.class]="class_nok" class="item item-block item-ios">
+                    <ion-label>
+                        <ion-icon>
+                            <img src="img/calendar.png" alt="">
+                        </ion-icon>
+                        <span>
+                            {{ "booking.past" | translate }}
+                        </span>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-list *ngIf="showData">
+            <ion-item-group>
+                <ion-item *ngFor="let booking of currentBookingData">
+                    <ion-label>
+                        <ion-icon class="icon-circle">
+                            <img src="img/user-2.png" alt="" *ngIf="!booking['user_image']">
+                            <img src="{{ booking['user_image'] }}" alt="" *ngIf="booking['user_image']">
+                        </ion-icon>
+                        <span class="name">
+                            {{ booking['fname'] }}
+                        </span>
+                        <span class="date">
+                            {{ booking['book_date'] }}
+                        </span>
+                        <span class="price">
+                            {{ booking['total_price'] }}Nok
+                        </span>
+                        <ion-icon *ngIf="type=='past' && booking.isReviewed==false" class="icon2" (click)="presentActionSheet(booking['chef_id'],booking['user_image'],booking['id'])">
+                            <img src="img/user-2.png" alt="">
+                        </ion-icon>
+                        <ion-icon *ngIf="type=='past' && booking.isReviewed==true" class="icon2" (click)="openChat(booking['chef_id'],booking['id'])">
+                            <img src="img/user-2.png" alt="">
+                        </ion-icon>
+                        <ion-icon *ngIf="type=='cur'" class="icon2" (click)="openChat(booking['chef_id'],booking['id'])">
+                            <img src="img/user-2.png" alt="">
+                        </ion-icon>
+                    </ion-label>
+                </ion-item>
+            </ion-item-group>           
+        </ion-list>
+    </ion-grid>
+    <div class="modal" text-center *ngIf="openpopup">
+            <div class="modal-body comments">
+                    <ion-icon class="icon-circle">
+                      <img src="{{ chef_image }}" alt="">
+                    </ion-icon>
+                <h2>{{ "booking.my_review" | translate }}</h2>
+                <div class="rating">
+                        <ion-icon name="star-outline" *ngIf="review_num==0" (click)="setValue(1)"></ion-icon>
+                        <ion-icon name="star" *ngIf="review_num > 0" (click)="setValue(1)"></ion-icon>
+                        <ion-icon name="star-outline" *ngIf="review_num < 2" (click)="setValue(2)"></ion-icon>
+                        <ion-icon name="star" *ngIf="review_num >= 2" (click)="setValue(2)"></ion-icon>
+                        <ion-icon name="star-outline" *ngIf="review_num < 3" (click)="setValue(3)"></ion-icon>
+                        <ion-icon name="star" *ngIf="review_num >= 3" (click)="setValue(3)"></ion-icon>
+                        <ion-icon name="star-outline" *ngIf="review_num < 4" (click)="setValue(4)"></ion-icon>
+                        <ion-icon name="star" *ngIf="review_num >= 4" (click)="setValue(4)"></ion-icon>
+                        <ion-icon name="star-outline" *ngIf="review_num < 5" (click)="setValue(5)"></ion-icon>
+                        <ion-icon name="star" *ngIf="review_num >= 5" (click)="setValue(5)"></ion-icon>
+                </div>
+                <ion-textarea margin-bottom id=" " placeholder="Type here" [(ngModel)]="review_text" name="review_text"></ion-textarea>
+            </div>
+            <div class="modal-footer">
+                <button ion-button block round (click)="saveReview()">Post</button>
+            </div>
+        </div>
+        <div id="overlay" *ngIf="openpopup" (click)="closepopup()"></div>
+</ion-content>

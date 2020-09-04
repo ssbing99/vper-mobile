@@ -1,0 +1,18 @@
+page-view-reviews {
+    .comment-box{
+        .item-md{            
+            p{
+                margin-bottom: 0px;
+            }
+            .date{
+                font-size: .8rem;
+                font-weight: 400;
+                position: relative;
+                top:-6px;
+            }
+            ion-avatar[item-start]{
+                margin-right: 10px;
+            }
+        }
+    }
+}

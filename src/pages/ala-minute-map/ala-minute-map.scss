@@ -1,0 +1,90 @@
+page-ala-minute-map {
+    .searchMap{
+        position: absolute;
+        top:10%;
+        z-index: 99;
+        width: 75%;
+        left: 10%;
+    }
+    .places-list{
+        width: 75%;
+        left: 10%;
+        position: absolute;
+        top: 18%;
+        z-index: 9;
+    }
+    #map {
+        height: 100%;     
+        }    
+    .scroll-content{
+        padding: 0px!important;
+        margin-top: 0px!important;
+    }
+    .comment-box{
+        &.list-md,
+        &.list-ios,
+        &.list-wp{
+        background: #e7e6e6;
+        position: absolute;
+        bottom:-18px;
+        left:0px;
+        width:100%;   
+        margin-bottom: 18px;     
+        .item-md,
+        .item-ios,
+        .item-wp{    
+            padding: 10px 0;
+            .label-md,
+            .label-ios,
+            .label-wp{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                }        
+            p{
+                margin-bottom: 0px;
+                font-size: 1.4rem;
+            }
+            .name{
+                font-size: 2rem;
+            }            
+            ion-avatar[item-start]{
+                margin-right: 10px;
+                padding-left: 5px;
+                img{
+                    border:1px solid transparent;
+        -webkit-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+                }
+            }
+            .button{
+                text-transform: capitalize;
+                border-radius: 8px;                   
+                padding: 0 15px;
+            }
+        }
+        }
+    }
+    
+    .searchbar-md,
+    .searchbar-ios,
+    .searchbar-wp{
+        .searchbar-input{
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 1.3rem;
+        }
+        .searchbar-search-icon{
+            left:10px;
+        }
+        .searchbar-md-cancel,
+        .searchbar-ios-cancel,
+        .searchbar-wp-cancel{
+            left:10px;
+        }
+    }
+    ion-fab[bottom]{
+        bottom:90px;
+    }
+}

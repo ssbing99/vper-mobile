@@ -1,0 +1,98 @@
+<!--
+  Generated template for the ChefPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content has-header="true" class="section2"> 
+    <ion-header>
+        <ion-row justify-content-center align-items-center>
+            <ion-col col-6>
+                <ion-navbar>
+                  </ion-navbar> 
+            </ion-col>
+            <ion-col col-6 text-right>
+              <button ion-button small round class="btn-small" (click)="openChat()">Chat &amp; Hire</button>
+            </ion-col>
+          </ion-row>
+
+      </ion-header>
+  <div id="profile">
+    <div class="profile-info" padding-vertical>
+        <ion-icon class="icon-circle">
+            <img id="profile-image" src="img/avatar-3.png" *ngIf="!chefProfile['user_image']">
+            <img id="profile-image" src="{{ chefProfile['user_image'] }}" *ngIf="chefProfile['user_image']">
+        </ion-icon>      
+      <h1>{{ chefProfile['fname'] }}</h1>
+      <span class="profile-description">{{ chefProfile['country'] }}, {{ chefProfile['city'] }}</span>
+    </div>
+    </div>  
+<ion-grid padding-horizontal margin-vertical>
+  <h2>About</h2>
+  <p>{{ chefProfile['about_me'] }}.</p>
+<h2>Chef’s Choice</h2>
+<ion-row *ngIf="chefDish.length > 0">
+          <ion-col col-3 *ngFor="let disData of chefDish" (click)="openModelPopup(disData.name,disData.grocery)">
+              <ion-card>
+                  <img src="{{ disData['image'] }}"/>
+                  <ion-card-content>            
+                    <p>
+                    <span class="border-bottom">{{ disData['name'] }}</span>
+                    </p>
+                  </ion-card-content>
+                </ion-card>
+        </ion-col>
+</ion-row>
+<div class="profile-description" *ngIf="chefDish.length <= 0">No dish added yet!</div>
+<h2>Reviews</h2>
+<ion-list class="comment-box" *ngIf="chefReview.length > 0">
+    <ion-item *ngFor="let reviews of chefReview;">
+        <ion-avatar item-start>
+          <img *ngIf="!reviews['user_image']" src="img/avatar-3.png">
+          <img *ngIf="reviews['user_image']" [src]="reviews['user_image']">
+        </ion-avatar>
+        <span class="date"  margin-right>{{ reviews['created_date'] }}</span>
+          <span class="rating" margin-left>
+            <ion-icon [name]="(reviews['ratings'] >= 1)?'star':'ios-star-outline'"></ion-icon>
+                <ion-icon [name]="(reviews['ratings'] >= 2)?'star':'ios-star-outline'"></ion-icon>
+                <ion-icon [name]="(reviews['ratings'] >= 3)?'star':'ios-star-outline'"></ion-icon>
+                <ion-icon [name]="(reviews['ratings'] >= 4)?'star':'ios-star-outline'"></ion-icon>
+                <ion-icon [name]="(reviews['ratings'] >= 5)?'star':'ios-star-outline'"></ion-icon>
+          </span>
+        <p>{{ reviews['review_text'] }}</p>
+      </ion-item>      
+</ion-list>
+<ion-list *ngIf="chefReview.length <=0">
+  <span class="profile-description">There is no review</span>
+</ion-list>
+<ion-row justify-content-center align-items-center>
+    <ion-col col-6 text-center>
+        <button ion-button (click)="openChat()" small round class="btn-small" >Chat &amp; Hire</button>
+    </ion-col>
+  </ion-row>  
+</ion-grid>
+
+<div class="modal" *ngIf="openPopup">  
+  <div class="model-header">
+      <ion-buttons float-right (click)="closeModelPopup()">
+          <button ion-button clear button-clear icon-only>
+            <ion-icon name="close" ></ion-icon>
+          </button>
+        </ion-buttons>
+      <h2>{{ dishName }}</h2> 
+  </div>
+  <div class="modal-body">    
+     <p padding-left>{{ grocery }}</p>
+  </div>
+</div>
+<div id="overlay" *ngIf="openPopup" (click)="closeModelPopup()"></div>
+</ion-content>
+

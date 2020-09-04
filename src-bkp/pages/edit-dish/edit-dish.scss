@@ -1,0 +1,55 @@
+page-edit-dish {
+        ion-icon{
+            display: block;
+            &.upload{
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;    
+               }
+        }
+        h5{
+            margin: 0 0 15px 0;
+        }
+        .form{
+            margin: 0 auto;
+           .icon{
+               vertical-align: text-bottom;
+              img{
+                 width:30px;
+              }
+               &.upload{
+                 img{
+                     width:100px;
+                     height: 100px;
+                     box-shadow: none;                
+                 }
+             }
+           }
+           .item-input{
+             .text-input{
+              min-height: 3.3rem;
+             }
+         }
+            .item-md,
+            .item-ios,
+            .item-wp{
+                background: transparent;
+                text-align: center;
+                .label{
+                    padding-top: 6px;
+                }
+               
+                &.item-textarea{
+                 color:rgba(113,113,113,.9);
+                 min-height: 100px;
+                }
+                textarea{
+                 &.text-input{  
+                     min-height: 100px;   
+                     padding-top: 5px;         
+                 }
+               }
+            }
+        }
+}

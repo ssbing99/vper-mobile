@@ -1,0 +1,180 @@
+page-member-upgrade {
+    .list-ios,
+    .list-wp,
+    .list-md{ 
+        border: 1px solid rgba(0,0,0,.5);
+        padding: 10px 5px;   
+        text-align: center; 
+    .list-header-ios,
+    .list-header-md,
+    .list-header-wp{
+        padding-left: 0px;
+        font-size: 1rem;
+        background: transparent;
+        border:0px;   
+        margin: 0px;   
+        .label-ios,
+        .label-md,
+        .label-wp{
+            font-size: 2rem;
+            text-transform: capitalize;
+            text-align: center;
+            color:#2f3438;
+            text-overflow: initial;
+            white-space: initial;
+            background: transparent;     
+            margin: 0px;      
+        }
+    }
+    .item-ios,
+    .item-wp,
+    .item-md{
+         background:transparent;
+         text-align: left;
+         &.item-block{
+             .item-inner{
+                 border:0px;
+                 .label-ios,
+                 .label-md,
+                 .label-wp{
+                     text-overflow: initial;
+                     white-space: initial;
+                     font-size: 1.5rem;
+                     margin: 0px;
+                 }
+             }
+         }
+    }
+    &.make-payment{
+        padding: 0px;
+        .item-ios,
+        .item-wp,
+        .item-md{            
+             &.item-block{
+                 .item-inner{
+                     border-bottom:0.55px solid #c8c7cc;                    
+                 }
+             }
+        }
+    }
+}
+ion-list{
+    background: white;
+    margin-top: 30px;
+    border:1px solid #c8c7cc;
+    ion-list-header{
+        &.step4{
+            ion-label{
+                white-space: unset;
+            }
+        }
+        .label-ios,
+        .label-md,
+        .lablel-wp{
+            text-overflow: initial;
+            white-space: initial;
+        }
+        margin-bottom: 0px!important;
+        .item-inner{
+            .input-wrapper{
+                ion-label{
+                    h3{
+                        font-size: 1.3em;
+                    }
+                }
+            }
+        }
+    }
+    .footer{
+        button.back{
+            float: left;
+            height: 30px;
+            font-size: 1em;
+            width: 45%;
+        }
+        button.next{
+            float: right;
+            height: 30px;
+            font-size: 1em;
+            width: 45%;
+            background: #638fb5;
+        }
+        &.f-none{                   
+            button.back{                       
+                width:100%;
+            }
+            button.next{                        
+                width:100%;
+                margin-bottom:10px;
+            }
+        }
+    }
+    .selectBox{
+        ion-select{
+            max-width: 100%;
+            width:100%;
+        }
+    }
+}
+.list-header-ios,
+.list-header-wp,
+.list-header-md{ 
+    padding: 0px;
+    .label-ios,
+    .label-md,
+    .label-wp{
+        text-overflow: initial;
+        white-space: initial;
+        margin: 0px;
+        h3{
+            background: #509ec0;        
+            color:#fff; 
+            padding: 11px 0;
+            text-align: center;
+           }  
+           .icon-circle{
+            img{
+                border-color:#fff;
+            }
+        }
+    }   
+}
+.list-ios,
+    .list-md,
+    .list-wp{
+        .item-md,
+        .item-wp,
+        .item-ios{
+            background: #fff;
+        }
+        &.layout2{       
+            background: transparent;
+            border:0px;     
+            .list-header-ios,
+            .list-header-wp,
+            .list-header-md{ 
+                padding: 0px;
+                background: transparent;
+                border:0px;
+                .label-ios,
+                .label-md,
+                .label-wp{
+                   h3{
+                       padding-top:35px;
+                       border-top-left-radius: 5px;
+                       border-top-right-radius: 5px;
+                   }
+                }
+                .icon-circle{
+                    position: relative;
+                    top:28px;
+                }
+            }
+        }
+    }
+
+    .payment-container {
+        background-color: white;
+    }
+}
+

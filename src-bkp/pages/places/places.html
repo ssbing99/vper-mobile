@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-searchbar  (keyup)="updateSearchResults()" [(ngModel)]="autocomplete.input" placeholder="Search for a place"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+      {{ item['description'] }}
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <button color="primary" ion-button (click)="dismiss()" float-right>Cancel</button>
+</ion-footer>

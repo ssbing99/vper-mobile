@@ -1,0 +1,331 @@
+<!--
+  Generated template for the HireChefPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="header-title">
+      Booking {{ "hire_chef.proccess" | translate }}
+      <div>
+      </div>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="section">
+  <div class="content-title">
+    <h4>{{ "hire_chef.step" | translate }} {{ stepWillShow }} {{ "hire_chef.of" | translate }} {{ stepsShow }}</h4>
+  </div>
+
+  <ion-list radio-group [(ngModel)]="userChoice" *ngIf="step===1">
+    <ion-list-header>
+      <h3>{{ "hire_chef.step1.title" | translate }}</h3>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Yper Cook Menu</ion-label>
+      <ion-radio checked="true" value="1" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ "hire_chef.step1.food_menu" | translate }}</ion-label>
+      <ion-radio value="2"></ion-radio>
+    </ion-item>
+    <ion-item margin-bottom>
+      <ion-label>{{ "hire_chef.step1.other" | translate }}</ion-label>
+      <ion-radio value="3"></ion-radio>
+    </ion-item>
+    <ion-item class="footer" style="text-align: center;">
+      <button ion-button class="secondry next" style="float: unset;" (click)="changeStep(2)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===2 && userChoice==1">
+    <ion-list-header>
+      <h3>{{ "hire_chef.step2.title" | translate }}</h3>
+    </ion-list-header>
+
+    <ion-item *ngFor="let dish of chefDishes">
+      <ion-label>{{ dish['name'] }}</ion-label>
+      <ion-checkbox (ionChange)="ionOnSelectDish(dish['id'],$event)" checked="{{ (userChooseDished.indexOf(dish['id'])!==-1)?true:false }}"></ion-checkbox>
+    </ion-item>
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(1)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(3)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===3">
+    <ion-list-header>
+      <h3>{{ "hire_chef.step3.title" | translate }}</h3>
+    </ion-list-header>
+    <ion-item class="selectBox">
+      <ion-select [(ngModel)]="chosesDays" interface="popover">
+        <ion-option *ngFor="let days of totalDays" value="{{ days }}">{{ days }} {{ "hire_chef.step3.days" | translate }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(2)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(4)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===4">
+    <ion-list-header class="step4">
+      <h3>{{ "hire_chef.step4.title" | translate }}</h3>
+    </ion-list-header>
+    <ion-item class="selectBox">
+      <ion-select [(ngModel)]="FirstDayPersone" interface="popover">
+        <ion-option *ngFor="let person of totalPerson" value="{{ person }}">{{ person }} Person</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(3)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(5)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===5">
+    <ion-list-header class="step4">
+      <h3>{{ "hire_chef.step5.title" | translate }}</h3>
+    </ion-list-header>
+    <ion-item class="" *ngIf="chosesDays >= 2">
+      <ion-label>Day 2</ion-label>
+      <ion-select [(ngModel)]="SecondDayPersone" name="SecondDayPersone" interface="popover">
+        <ion-option *ngFor="let person of totalPerson" selected="{{ (person==1)?true:false }}" value="{{ person }}">{{ person }} Person</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="" *ngIf="chosesDays >= 3">
+      <ion-label>Day 3</ion-label>
+      <ion-select [(ngModel)]="ThirdDayPersone" interface="popover">
+        <ion-option *ngFor="let person of totalPerson" selected="{{ (person==1)?true:false }}" value="{{ person }}">{{ person }} Person</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="" *ngIf="chosesDays >= 4">
+      <ion-label>Day 4</ion-label>
+      <ion-select [(ngModel)]="FourthDayPersone" interface="popover">
+        <ion-option *ngFor="let person of totalPerson" value="{{ person }}">{{ person }} Person</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="" *ngIf="chosesDays >= 5">
+      <ion-label>Day 5</ion-label>
+      <ion-select [(ngModel)]="FifthPersone" interface="popover">
+        <ion-option *ngFor="let person of totalPerson" value="{{ person }}">{{ person }} Person</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="" *ngIf="chosesDays == 6">
+      <ion-label>Day 6</ion-label>
+      <ion-select [(ngModel)]="SixthDayPersone" interface="popover">
+        <ion-option *ngFor="let person of totalPerson" value="{{ person }}">{{ person }} Person</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(4)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(6)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===6">
+    <ion-list-header>
+      <h3>{{ "hire_chef.step6.title" | translate }}</h3>
+    </ion-list-header>
+    <ion-item class="comments">
+      <ion-textarea margin-bottom id=" " placeholder='{{ "hire_chef.step6.text" | translate }}' [(ngModel)]="alergies"></ion-textarea>
+    </ion-item>
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(5)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(7)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===7">
+    <ion-list-header class="step4">
+      <h3>{{ "hire_chef.step7.title" | translate }}</h3>
+    </ion-list-header>
+    <ion-item>
+      <!-- <ion-label>Address</ion-label> -->
+      <ion-input [(ngModel)]="address['address']" type="text" placeholder='{{ "hire_chef.step7.address" | translate }} : '></ion-input>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-label>Phone Number</ion-label> -->
+      <ion-input [(ngModel)]="address['phone']" type="tel" placeholder='{{ "hire_chef.step7.phone" | translate }} : '></ion-input>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-label>Postal Code</ion-label> -->
+      <ion-input [(ngModel)]="address['postal_code']" type="text" placeholder='{{ "hire_chef.step7.post_code" | translate }} : '></ion-input>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-label>Country</ion-label> -->
+      <ion-select [(ngModel)]="address['country']" interface="popover" style="width:100%;min-width:100%">
+        <ion-option value="164">Norway</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-label>County</ion-label> -->
+      <ion-select [(ngModel)]="address['state']" interface="popover" (ionChange)="getCity()" style="width:100%;min-width:100%">
+        <ion-option value="0">{{ "hire_chef.step7.county" | translate }}</ion-option>
+        <ion-option *ngFor="let state of arrState" value="{{ state['id'] }}">{{ state['name'] }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-label>City</ion-label> -->
+      <ion-select [(ngModel)]="address['city']" interface="popover" style="width:100%;min-width:100%">
+        <ion-option value="0">{{ "hire_chef.step7.city" | translate }}</ion-option>
+        <ion-option *ngFor="let city of arrCity" value="{{ city['id'] }}">{{ city['name'] }}</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(6)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(8)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===8">
+    <ion-list-header>
+      <h3  *ngIf="type!=='ala'">{{ "hire_chef.step8.title" | translate }}?</h3>
+      <h3  *ngIf="type=='ala'">{{ "hire_chef.step8.title_1" | translate }}</h3>
+    </ion-list-header>
+    <ion-item *ngIf="type!=='ala'">
+      <ion-label>{{ "hire_chef.payment.date" | translate }}</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="Choosedate" displayFormat="DD MMMM YYYY" min="{{ mindate }}"></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="type!=='ala'">
+      <ion-label>{{ "hire_chef.payment.time" | translate }}</ion-label>
+      <ion-datetime displayFormat="HH:mm A" pickerFormat="HH:mm A" [(ngModel)]="ChooseTime" min="00:00"></ion-datetime>
+    </ion-item>
+    <ion-item class="footer">
+      <ion-label>
+        <span float-left>{{ "hire_chef.step8.tl_amount" | translate }}:</span>
+        <span float-right>{{ totalAmount }}NoK</span>
+      </ion-label>
+    </ion-item>
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(7)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(9)">
+        {{ "hire_chef.payment.pay_now" | translate }}
+      </button>
+    </ion-item>
+
+  </ion-list>
+  <ion-list *ngIf="step===9" class="layout2">
+    <ion-list-header text-center>
+        <ion-icon class="icon-circle">
+            <img src="img/50.png" alt="">
+         </ion-icon>
+      <h3>{{ "hire_chef.payment.title" | translate }}</h3>
+    </ion-list-header>
+    <ion-item>
+      <ion-label><ion-icon name="card"></ion-icon></ion-label>
+      <ion-input (ionBlur)="validateCard()" type="text" placeholder='{{ "hire_chef.payment.card" | translate }}' minLength="16" maxlength="16" [(ngModel)]="card"
+        name="card"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col col-6 no-padding>
+        <ion-item>
+          <ion-label><ion-icon name="calendar"></ion-icon></ion-label>
+          <ion-input type="text" placeholder='{{ "hire_chef.payment.month" | translate }}' [(ngModel)]="month" name="month"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 no-padding>
+        <ion-item>
+          <ion-label><ion-icon name="calendar"></ion-icon></ion-label>
+          <ion-input type="text" placeholder='{{ "hire_chef.payment.year" | translate }}' [(ngModel)]="year" name="year"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+        <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+      <ion-input type="text" (ionBlur)="valiDateCvc()" placeholder="CVC" minLength="16" maxlength="16" [(ngModel)]="cvc" name="cvc"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" (ionBlur)="valiDateCoupon()" placeholder="Coupon code" [(ngModel)]="couponCode" name="couponCode"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="showCouponCode!==undefined">
+      <ion-label class="couponcodeClass">
+        <span >{{ showCouponCode }}</span>
+        <ion-icon name="ios-trash" class="icon-delete" color="danger" (click)="removeCoupon()"></ion-icon>
+      </ion-label>
+      
+    </ion-item>
+    <ion-item *ngIf="couponAmount!==undefined">
+      <ion-label>
+        <span float-left>Coupon Amount:</span>
+        <span float-right>{{ couponAmount }}NoK</span>
+      </ion-label>
+    </ion-item>
+    <ion-item class="footer f-none">    
+      <button ion-button class="secondry next" (click)="stripePayment()" *ngIf="ShowPayment">
+        {{ "hire_chef.payment.pay" | translate }} {{ totalAmount }}NoK
+      </button>
+      <button ion-button class="secondry next" disabled (click)="stripePayment()" *ngIf="!ShowPayment">
+        {{ "hire_chef.payment.pay" | translate }} {{ totalAmount }}NoK
+      </button>
+      <button ion-button class="back" (click)="cancelTransection()">
+        {{ "hire_chef.payment.cancel" | translate }}
+        </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===2 && userChoice==2">
+    <ion-list-header>
+      <h3>{{ "hire_chef.step2.second_step_title2" | translate }}</h3>
+    </ion-list-header>
+    <ion-item class="comments">
+      <ion-textarea id=" " placeholder='{{ "hire_chef.step2.first_text" | translate }}' [(ngModel)]="foodbox_menu_company"></ion-textarea>
+    </ion-item>
+    <ion-item class="comments">
+      <ion-textarea margin-bottom id=" " placeholder='{{ "hire_chef.step2.second_text" | translate }}' [(ngModel)]="foodbox_menu"></ion-textarea>
+    </ion-item>
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(1)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(3)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="step===2 && userChoice==3">
+    <ion-list-header>
+      <h3>{{ "hire_chef.step2.third_title" | translate }}</h3>
+    </ion-list-header>
+    <ion-item class="comments">
+      <ion-textarea margin-bottom id=" " placeholder="Type here" [(ngModel)]="other" placeholder="Please enter the details here"></ion-textarea>
+    </ion-item>
+    <ion-item class="footer">
+      <button ion-button class="back" (click)="backStep(1)">
+        {{ "hire_chef.back" | translate }}
+      </button>
+      <button ion-button class="secondry next" (click)="changeStep(3)">
+        {{ "hire_chef.next" | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,59 @@
+<!--
+  Generated template for the AlaMinuteMapPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-searchbar
+    [(ngModel)]="autocomplete.input"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="updateSearchResults($event)"
+    (ionCancel)="onCancel($event)" class="searchMap" placeholder='{{ "chef_going" | translate }}' >
+  </ion-searchbar>
+  <ion-list [hidden]="autocompleteItems.length == 0" class="places-list">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+        {{ item['description'] }}
+      </ion-item>
+    </ion-list>
+  <div id='map' #map>
+    
+  </div>
+  <ion-fab bottom right (click)="getlocation()">
+    <button ion-fab color="primary">
+        <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-list class="comment-box" padding-horizontal *ngIf="showPopup">
+    <ion-item>
+        <ion-avatar item-start>
+          <img src="img/avatar-3.png" *ngIf="!userDetail['user_image']">
+          <img src="{{ userDetail['user_image'] }}" *ngIf="userDetail['user_image']" style="width:50px;height: 50px;">
+        </ion-avatar>
+        <div class="inner-content" padding-horizontal>
+        <span class="name">{{ userDetail['fname'] }}</span>
+        <p>{{ userDetail['address'] }} <br />
+          {{ userDetail['city'] }}, {{ userDetail['name'] }}</p>
+        <span class="rating">
+          <ion-icon [name]="(userDetail['review'] >= 1)?'star':'ios-star-outline'"></ion-icon>
+          <ion-icon [name]="(userDetail['review'] >= 2)?'star':'ios-star-outline'"></ion-icon>
+          <ion-icon [name]="(userDetail['review'] >= 3)?'star':'ios-star-outline'"></ion-icon>
+          <ion-icon [name]="(userDetail['review'] >= 4)?'star':'ios-star-outline'"></ion-icon>
+          <ion-icon [name]="(userDetail['review'] >= 5)?'star':'ios-star-outline'"></ion-icon>
+        </span>
+      </div>
+      <button ion-button type="button" color="secondary" (click)="openChefProfile(userDetail['id'])">View</button> 
+          </ion-item>
+      </ion-list>
+</ion-content>

@@ -1,0 +1,93 @@
+<!--
+  Generated template for the ChefMyEarningPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="layout2">
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <ion-icon class="icon3">
+                <img src="img/total-earning.png" alt="">
+            </ion-icon>
+            {{ "total_income.title" | translate }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="box">
+    <ion-grid>
+        <ion-list>
+            <ion-item-group>
+                <ion-item>
+                    <ion-label>
+                        {{ "total_income.p1" | translate }}
+                    </ion-label>
+                </ion-item>
+            </ion-item-group>
+            <div class="description">
+                <h3>{{ "total_income.h" | translate }}</h3>
+                <p class="order">{{ "total_income.p2" | translate }}</p>
+                <p class="memberupgrade">{{ "total_income.p3" | translate }}</p>
+                <p class="commontips">{{ "total_income.p4" | translate }}</p>
+            </div>
+        </ion-list>
+        <ion-row class="column">
+            <ion-col col-6>
+                <ion-item [attr.class]="total_income">
+                    <ion-label>
+                        <ion-icon>
+                            <img src="img/hand2.png" alt="">
+                        </ion-icon>
+                        <span>
+                            {{ "total_income.title" | translate }}
+                        </span>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col col-6 text-center>
+                <ion-item [attr.class]="class_nok">
+                    <ion-label>
+                        <span class="span_total_count">
+                            {{ (totalIncome!==undefined)?totalIncome.TotalIncome:0 | number:'1.2-2' }} Nok
+                        </span>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-list>
+            <ion-item-group *ngIf="arrIncome!==undefined && arrIncome.length > 0">
+                <ion-item *ngFor="let income of arrIncome" class="item item-block item-md item-ios {{ income['type'] }}">
+                    <ion-label>
+                        <ion-icon class="icon-circle">
+                            <img src="img/user.png" alt="">
+                        </ion-icon>
+                        <span class="name">
+                            {{ income['fname'] }}
+                        </span>
+                        <span class="date">
+                            {{ (income['type']=='order')?income['book_date']:income['book_date'] }}
+                        </span>
+                        <span class="price">
+                            {{ income['ammount'] | number:'1.2-2' }}Nok
+                        </span>
+                    </ion-label>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group *ngIf="arrIncome==undefined || arrIncome.length <= 0">
+                <ion-item>
+                    <ion-label>
+                        <div>No Record Found</div>
+                    </ion-label>
+                </ion-item>
+            </ion-item-group>
+        </ion-list>
+        <ion-infinite-scroll (ionInfinite)="getMoreData($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,42 @@
+page-privacy-policy {
+    .header-md,
+    .header-ios,
+    .header-wp{
+        .toolbar-md,
+        .toolbar-ios,
+        .toolbar-wp{
+            .toolbar-title-md,
+            .toolbar-title-ios,
+            .toolbar-title-wp{
+                text-align: center;
+                margin-top: 16px;                
+            }
+            .toolbar-title-ios{
+                margin-top: 0px;
+            }
+        }
+        button{
+            position: relative;
+            top:-20px;
+            z-index: 100;
+            background: #fff;
+        }
+    }
+    .header-ios{
+       button{
+        top:0px;
+       }
+    }
+    h3{
+        font-weight: 700;
+        margin-top: 0px;
+    }
+    h4{
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-top: 0px;
+    }
+    p{
+        margin-top:0px;
+    }
+}

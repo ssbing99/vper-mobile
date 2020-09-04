@@ -1,0 +1,801 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+ion-toast{
+    z-index: 0!important;
+}
+ng-component{
+    z-index: 1!important;
+}
+.back-button-text{
+    display: none;
+}
+.ion-ios-arrow-back::before{
+    content: "\f288";
+}
+body{
+    color:#2f3438;
+    
+}
+.toolbar-title-ios{
+    text-overflow: unset;
+}
+.levvel2List{
+    margin: -1px 0 10px!important;
+    .item{
+        margin-top: 10px;
+    }
+}
+.padding-top-5{
+    padding-top: 5px;
+}
+ion-app{
+  &.md,
+  &.ios,
+  &.wp{
+    font-family: "Ebrima", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+}
+
+.mt-50{
+    margin-top: 50px !important;
+}
+.ios,
+.md,
+.wp{
+    .menu-inner{
+         background: rgba(199,199,199,0.9);
+            .content-ios,
+            .content-md,
+            .content-wp{
+                background: rgba(199,199,199,0.3);
+                .list-ios,
+                .list-md,
+                .list-wp{
+                    
+                    .item-block{
+                        background: transparent; 
+                        padding-left:10px; 
+                        &.logout{
+                            .label-md,
+                            .label-ios,
+                            .label-wp{
+                                
+                                display: inline-flex;
+                            } 
+                          }  
+                          .list-md,
+                          .list-ios,
+                          .list-wp{
+                              padding-left: 28px;
+                              .item-block{ 
+                                  min-height: 3.5rem;                                
+                                ion-icon{                                    
+                                    img{
+                                        width:20px;
+                                    }                                
+                                } 
+                                .label-md,
+                                .label-ios,
+                                .label-wp{
+                                   margin-top: 0px;
+                                   margin-bottom: 0px;
+                                } 
+                              }
+                          }  
+                        .item-inner{
+                            border-color:#fff;
+                            color:#fff;
+                            margin-right: 15px;
+                            padding-right: 0px;
+                            ion-icon{
+                                margin: 0px;
+                                img{
+                                    width:25px;
+                                }
+                            }  
+                            .label-md,
+                            .label-ios,
+                            .label-wp{
+                               margin-right: 0px;                               
+                            }                           
+                           div{                              
+                            span{
+                                display: inline-flex;                               
+                                padding-left: 12px;
+                                font-size: 1.8rem;
+                                font-weight: 400;
+                            }  
+                           ion-icon{
+                            &.right{
+                                float: right;
+                                margin-top: 4px;
+                            }
+                           }
+                            .list-md,
+                            .list-ios,
+                            .list-wp{
+                                padding-left: 20px;
+                                .item-block{
+                                    .item-inner{
+                                        margin-left: 15px;
+                                        .label-md,
+                                        .label-ios,
+                                        .label-wp{                                       
+                                            font-weight: 400;
+                                            text-overflow: unset;
+                                            white-space: unset;
+                                            font-size: 15px;
+                                        } 
+                                    }
+                                }
+                            }
+                           }                                                                  
+                        }
+                    }
+                }
+            }
+            .footer-ios,
+            .footer-wp,
+            .footer-md{
+                p{
+                    font-size: 1.4rem;
+                    color:#fff;
+                }
+            }
+        }
+}
+
+#profile-dashboard{
+    background: #638fb5;
+    margin-bottom: 7px;
+    h4{
+        color:#fff;
+        font-family: "Ebrima";
+        font-weight: 400;
+        margin: 0px;
+    }
+    img{
+        width:50%;    
+    }
+    .icon-ios{
+        padding-top: 15px;
+    }
+    .icon-circle{
+        img{
+                width:100px; 
+                height: 100px;
+                border:0px;
+                box-shadow: none;
+                font-family: 'object-fit: cover; object-position: center center';
+                object-fit: cover;
+                object-position: center center;
+        }
+    }
+}
+
+
+
+.header{
+    .bar-button-menutoggle-md,
+    .bar-button-menutoggle-ios,
+    .bar-button-menutoggle-wp{
+        padding:0px;
+        margin: 0px;
+        background: transparent; 
+    }
+    .toolbar-background-md,
+    .toolbar-background-ios,
+    .toolbar-background-wp{
+        background: transparent; 
+        border-color: transparent;
+    }
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default,
+    .bar-button-defaultios, .bar-button-clearios-default, .bar-button-ios-default,
+    .bar-button-default-wp, .bar-button-clear-wp-default, .bar-button-wp-default{
+        color:#2f3438;
+    }
+}
+
+.ion-page{    
+    font-family: "Ebrima", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 400;
+    background: url('../img/gradient-bg.jpg') scroll 0 0 no-repeat;
+    background-size: cover;
+    color:#2f3438;
+    ion-content{
+        background: transparent;
+        padding-left:10px;
+        padding-right:10px;
+        color:#2f3438;        
+    }
+}
+.logo a{
+    &:hover{
+        opacity: 1;
+    }
+}
+
+h1{
+    font-size: 2.2rem;
+    font-weight: 400;
+}    
+h2{
+    font-size: 1.9rem;
+    font-weight: 400;
+}
+h3{
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+h6{
+    color:#2f3438;
+}
+
+.vertical-center{
+    position: absolute;
+    left:50%;
+    top:50%;   
+    transform: translate(-50%, -50%);
+}
+
+
+.horizontal-center{
+    position: absolute;
+    left:50%;
+    top:auto;   
+    transform: translateX(-50%);
+}
+.scrollY{
+    width:100%;
+    height:100%;
+    .inner{
+    overflow-x: hidden;
+    overflow-y: auto;
+    }
+}
+
+.box-shadow{	  
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71); 
+   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71); 
+   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71);
+   padding:10px;
+   border-radius:10px;
+   }
+
+.border-bottom{
+    border-bottom:1px solid #2f3438;
+}
+
+   .grid{
+    padding:10px;
+}
+
+.button-md-light,
+.button-ios-light,
+.button-wp-light{
+   color:#2f3438;
+   font-weight: 400;
+   font-style: normal;
+   text-transform: lowercase;
+   box-shadow: none;  
+}
+
+
+.header{
+    &::after{
+        background-image:unset;
+    }    
+    ion-icon{
+        img{
+            width:32px;
+        }
+        &.arrow-left{
+            img{
+                width:16px;
+            }
+        }
+    }
+    .toolbar-md,
+    .toolbar-ios,
+    .toolbar-wp{
+        .toolbar-title-md,
+        .toolbar-title-ios,
+        .toolbar-title-wp{
+              color:#2f3438;
+              font-size: 2rem;
+              font-weight:400;
+        }
+    }
+    &.layout2{
+        .toolbar-md,
+        .toolbar-ios,
+        .toolbar-wp{
+            min-height: 80px !important;
+            align-items: flex-start;
+            padding: 5px 0 0 0;
+            .toolbar-title-md,            
+            .toolbar-title-wp,
+            .toolbar-title-ios{
+                padding-right: 56px;                
+                text-align: center;  
+                margin-top: 15px !important;    
+                font-weight: 400;  
+                text-transform: capitalize;       
+            }  
+            .toolbar-title-ios{
+                padding-right: 0px;
+            }               
+            ion-icon{
+                display: block;
+            }
+        }
+    }
+}
+
+// .item{
+//     &.item-md,
+//     &.item-ios,
+//     &.item-wp{
+//         background: transparent;        
+//     }
+//     .item-inner{
+//         border:0px;
+//     }
+// }
+
+/*
+* Logo
+*/
+.logo{
+    img{
+        width: 135px;
+        height: auto;
+    }
+}
+
+.form{
+    width:100%;
+    max-width: 75%;
+    // bottom:0px;
+    margin: 0 auto;
+    h3{
+        background: #509ec0;        
+        color:#fff; 
+        padding: 10px 0;
+        .border-bottom{
+            border-bottom-color: #fff;
+        }   
+    }
+    h5{
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+    h6{
+        font-weight: 700; 
+    }
+    .item-input,
+    .item-select{         
+        background: #acaeaf;     
+        padding: 0;        
+        margin-bottom: 10px;
+        color:#2f3438;
+        border: 1px solid #fff;    
+        min-height:auto; 
+        font-size: 14px; 
+        height:35px;
+        ion-label{
+            -webkit-box-flex: initial;
+            -webkit-flex: initial;
+            -ms-flex: initial;
+            flex: initial;
+            max-width: 200px;
+            pointer-events: none;
+        }
+        .select-md,
+        .select-ios,
+        .select-wp{
+            padding: 7px 5px 7px 12px;
+            max-width: 100%;
+            width:100%;
+            border-left: 1px solid #fff;
+            background: #c7c7c7;
+            text-align: left;
+            margin-left: 2px;
+            .select-icon{
+                padding-right: 15px;
+            }
+        }
+        .label{
+            margin: 0;
+            padding: 0 10px;
+            ion-icon{
+                color:#2f3438;
+            }  
+        }
+        .input{
+            border-left: 1px solid #fff;
+        }     
+        .text-input{
+            margin: 0;
+            min-height: 4rem;
+            padding: 0 10px;
+            width: calc(100%);
+            background: #c7c7c7;           
+        }   
+        .item-inner{
+            padding: 0px;
+            border:0px;
+        }          
+        &.item-md.item-block{
+            .item-inner{
+                padding: 0px;
+                border:0px;
+            }
+            &.ng-valid{
+                &.item-input-has-value{
+                    &:not(.input-has-focus){
+                        &:not(.item-input-has-focus){
+                            .item-inner{
+                                border:0px;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.input-has-focus{
+          border:1px solid #999;
+          transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+        }  
+        &.item-md{
+            &.item-input{
+                &.item-input-has-focus{
+                    .item-inner{
+                        .input{
+                            border-color: #999;
+                        }
+                       box-shadow: none;
+                       transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+                    }
+                }
+                &.item-input-has-focus{
+                    .input{
+                        border-color: #999;
+                    }
+                  box-shadow: none;
+                  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+                }
+            }
+        }    
+        }
+    .item-radio{
+        background:transparent;
+        border:0px;
+        margin: 0px; 
+        padding: 0px;               
+        .item-inner{
+            border:0px;
+            .radio{
+                margin-top: 4px;
+                margin-left:0px;
+                padding: 0 3px;
+                border:1px solid #6a7072;
+            }
+        }
+    }
+    .button{
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        font-weight: 400;
+    }
+    &.alt{
+        max-width: 100%;
+        ion-item{           
+            margin:0 auto;
+        }
+        h3{
+            margin-bottom: 22px
+        }
+    }
+    .dish-content{
+        max-width: 75%;
+        margin: 0 auto 40px;
+    }
+}
+.item{
+    .item-md.item-block .item-inner{
+        border:0px;
+    }
+}
+
+.box {
+    h1{
+        margin-top: 0px;
+    }
+    .col:first-child{
+        padding-left:5px;
+    }
+    .col:last-child{
+        padding-right: 0px;
+    }
+    .item{
+        &.item-md,
+        &.item-ios,
+        &.item-wp{
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71); 
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71); 
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71);
+            border-radius: 10px;
+            background: rgba(242,243,242,.5);
+            padding: 0px;
+            margin-bottom: 5px;
+            .item-inner{
+                border:1px solid #fff;
+                padding: 10px;
+                padding-left: 5px;
+                border-radius: 10px;
+                .label-md,
+                .label-ios,
+                .label-wp{
+                    margin: 0px;
+                }
+            }
+        }
+       
+    }    
+    ion-icon{
+        vertical-align: middle;
+        display: inline-block;        
+        img{
+            width:32px;
+        }
+        &.icon2{
+            img{
+                width:20px;
+            }
+        }
+    }
+    .label{
+        span{
+        vertical-align: middle;
+        display: inline-block;
+        padding:0 3px;
+        &.name{
+            font-size: 14px;
+        }
+        &.date,
+        &.price{
+            font-size: 12px;
+        }
+        }
+    }
+    .column{
+        .item{
+            &.item-md,
+            &.item-ios,
+            &.item-wp{
+                font-size: 13px;
+                line-height: 16px;
+                background:rgba(171,171,171,0.71);
+                &.active{
+                    background:rgba(76,75,75,0.4);
+                }
+                .item-inner{
+                    padding: 10px;
+                }
+            }
+        }
+        ion-icon{
+            img{
+                width:15px;
+            }
+        }
+        .label{
+            span{
+              color:#fff;
+            }
+        }
+    }
+    .alt{
+           
+    }
+}
+
+
+/*
+*  App Page
+*/
+
+
+
+
+
+/*
+*  Section
+*/
+
+.section{
+    .grid{
+        padding-top:0px;
+        &.px-2{
+            padding-left:5px;
+            padding-right:5px;
+        }
+    }  
+    .col{
+        font-size: 1rem;
+      
+    }
+    .header{
+        background: #509ec0;        
+        color:#fff;        
+        .col{
+            font-size: 1.2rem;
+            font-weight: 700; 
+            padding: 10px 0;
+            margin: 2px 0;
+        }
+        .border-bottom{
+            border-bottom-color: #fff;
+        }
+        .border-right{
+            border-right:1px solid #fff;
+        }
+    }
+  
+    .icon{
+        text-align:center;
+       a{
+           &:hover{
+               opacity: 1;
+           }
+       }
+        &.icon3{
+            img{
+                width:10%;
+            }
+        }
+    }    
+    h1{
+        text-align:center;
+        margin-top: 0px;        
+    }    
+    h2{
+        text-align:center;        
+    }
+    p{
+        margin-top: 0px;
+        a{
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+                opacity: 1;
+            }
+        }
+    }
+    p:last-child{
+       margin-bottom: 0px;
+    }
+    .text-italic{
+        font-size: 1.3rem;
+        line-height: 1.5;
+        font-style: italic;
+        h3{
+            font-style: normal;
+        }
+    }
+}
+
+/*
+* Chef Page
+*/
+
+#profile{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;    
+    background: url('../img/banner.jpg') no-repeat transparent;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+  }
+ 
+.icon-circle{       
+    img{
+        height:auto;
+        border-radius: 50%;
+        border:1px solid #2f3438;
+        -webkit-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+    }
+}  
+
+/* Section2 */
+
+.section2{
+    h2{
+        margin-top: 0px;
+    }
+    p{
+        margin-top: 0px;
+    }
+    .card-md,
+    .card-ios,
+    .card-wp{
+        margin: 0px;
+        width:calc(100%);
+        background: transparent;
+        .card-content-md,
+        .card-content-ios,
+        .card-content-wp{
+            padding: 5px;   
+            text-align: center;         
+        }
+    }
+}
+
+/* Comment Box */
+.comment-box{
+   .item-md,
+   .item-ios,
+   .item-wp{
+      background: transparent;
+      padding-left:0px;
+      .item-inner{
+          border: 0px;
+          padding-right: 0px;
+      }
+      .label-ios,
+      .label-md,
+      .label-wp{
+          margin:0px;
+          text-overflow: initial;
+          white-space: initial;
+      }
+      ion-avatar{
+          img{
+              border-radius: 50%;
+              border:1px solid #000;
+              height: 40px;
+              width:40px;
+              background: #fff;
+              padding: 1px;
+              font-family: 'object-fit: cover; object-position: center center';
+              object-fit: cover;
+              object-position: center center;
+          }
+      }
+      .date,
+      .name{
+          font-size: 1.4rem;
+      }
+      p{
+          font-size: 1.2rem;
+      }
+      .rating{
+          .icon{
+              color:#638fb5;
+              font-size: 1.3em;
+          }
+      }
+   }
+}

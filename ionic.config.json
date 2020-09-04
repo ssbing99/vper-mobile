@@ -1,0 +1,7 @@
+{
+  "name": "yper",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

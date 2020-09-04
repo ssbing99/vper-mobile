@@ -1,0 +1,45 @@
+page-ala-minute {
+    &.ion-page{
+        background: url(../img/ala-minute-bg.jpg) no-repeat;
+        background-size: cover;
+    }
+    .grid{
+        padding:0px;
+        .logo{
+            margin-bottom: calc(250px - 107px);
+        }
+        .col{
+            padding-left:0px; 
+            .button-outline-md,
+            .button-outline-ios,
+            .button-outline-wp{
+               border-left-width: 0px;
+               border-color: #0083bb;
+               font-size: 1.8rem;
+               font-weight: 400;
+               text-transform: capitalize;
+               height: 40px;
+               color: #2f3438;
+               border-radius: 0px;
+               &.active{
+                   background: rgba(47,52,56,.7);
+                   color:#fff;
+               }
+            } 
+            &:last-child{
+                padding-right: 0px;
+                padding-left:16px;  
+                .button-outline-md,
+                .button-outline-ios,
+                .button-outline-wp{
+                   border-left-width: 1px;
+                   border-right-width: 0px;
+                } 
+            }          
+        }        
+    }
+    .vertical-center{
+        width:100%;
+        min-height: 250px;
+    }
+}

@@ -1,0 +1,63 @@
+page-singup {
+    .form{
+        .icon2{
+            img{
+                width:15px;
+            }
+         }
+    }
+    .login{
+        a{
+            background: url('../img/button-bg.png') scroll 0 0 no-repeat;
+            position: fixed;
+            right:0px;
+            top:0px;
+            width:71px;
+            height:64px;
+            color:#fff;
+            text-decoration: none;
+            padding-top: 18px;
+            background-size: 100% 90%;
+            text-transform: uppercase;
+            font-weight: 700;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+   .condition{
+       .item-inner{
+           font-size: 14px;
+           font-style:italic;
+           .label-md,
+           .label-ios,
+           .label-wp{
+               text-overflow: initial;
+               white-space: initial;
+               margin-right: 0px;
+           }
+       }
+   }
+   .item-ios,
+   .item-md,
+   .item-wp{
+    background: transparent;
+    &.item-block{         
+        .item-inner{
+            border:0px;   
+            a{
+                color:#638fb5;
+            }    
+        }
+       } 
+   }
+   .item-input{
+       &.referal-code{
+           color:rgba(113,113,113,.9);            
+           .text-input{
+            background: rgba(153,183,196,.9);
+           }
+       }
+   }
+
+}

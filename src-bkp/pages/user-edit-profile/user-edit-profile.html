@@ -1,0 +1,60 @@
+<!--
+  Generated template for the EditProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <button ion-button (click)="openMenmu()">
+        <ion-icon name="menu" role="img" aria-label="menu" ></ion-icon>
+      </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content class="section"> 
+    <ion-icon class="avtar">
+        <img src="img/user-4.png" /> 
+    </ion-icon> 
+    <h1>{{ "profile_mangement.title" | translate }}</h1>
+    <form class="form" text-center margin-top>        
+          <ion-icon class="upload icon-circle">
+              <img  [src]="showImage" alt="" *ngIf="showImage">
+              <img  [src]="user['user_image']" alt="" *ngIf="!showImage">
+          </ion-icon>
+
+        <ion-item margin-bottom (click)="getImage()">
+          <ion-label>          
+            <ion-icon>
+                <img  src="img/upload.png" alt="">
+            </ion-icon>
+            Upload Image
+        </ion-label>
+        </ion-item>
+          <ion-item>
+            <ion-label><ion-icon name="person"></ion-icon></ion-label>
+            <ion-input type="text" placeholder='{{ "fname" | translate }}' [(ngModel)]="user['fname']" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item> 
+          <ion-item>
+            <ion-label><ion-icon name="person"></ion-icon></ion-label>
+            <ion-input type="text" placeholder='{{ "lname" | translate }}' [(ngModel)]="user['lname']" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>        
+          <ion-item>
+            <ion-label><ion-icon name="call"></ion-icon></ion-label>
+            <ion-input type="tel" placeholder='{{ "phone" | translate }}' [(ngModel)]="user['phone']" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+          <ion-item>            
+            <ion-textarea rows="1" maxLength="500" placeholder='{{ "about" | translate }}' [(ngModel)]="user['about_me']" [ngModelOptions]="{standalone: true}">{{ user['about_me'] }}</ion-textarea>
+          </ion-item>
+          <button ion-button type="button" color="secondary" block (click)="updateUserProfile()">{{ "submit" | translate }}</button> 
+          <button ion-button type="button" color="secondary" block (click)="openChangePasswordPage()">{{ "change_pass" | translate }}</button>
+  
+  </form>
+  </ion-content>

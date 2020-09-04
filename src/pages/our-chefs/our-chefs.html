@@ -1,0 +1,65 @@
+<!--
+  Generated template for the OurChefsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="layout2">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+        <!-- <ion-icon class="icon3">
+            <img  src="img/chatboxes.png" alt="">
+        </ion-icon> -->
+        {{ "our_checf" | translate }}</ion-title>
+  </ion-navbar> 
+</ion-header>
+<ion-content padding>   
+    <ion-searchbar
+    [(ngModel)]="autocomplete.input"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="updateSearchResults($event)"
+    (ionCancel)="onCancel($event)" class="searchMap" placeholder='{{ "chef_going" | translate }}' style="margin-bottom: 12px">
+  </ion-searchbar>
+  <ion-list [hidden]="autocompleteItems.length == 0" class="places-list" style="margin-top: -12px;">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+        {{ item['description'] }}
+      </ion-item>
+  </ion-list>
+  <ion-list class="comment-box">
+      <ion-item (click)="openShefPage(chef['id'])" *ngFor="let chef of this.checfData">
+        <ion-row justify-content-center align-items-start>
+          <ion-col col-3 text-center>
+              <ion-avatar item-start class="icon-circle">
+                  <img src="img/avatar-3.png" *ngIf="!chef['user_image']">    
+                  <img src="{{ chef['user_image'] }}" *ngIf="chef['user_image']" style="width:60px;height:60px;">                   
+                </ion-avatar> 
+                <span class="rating">
+                  <ion-icon [name]="(chef['review'] >= 1)?'star':'ios-star-outline'"></ion-icon>
+                  <ion-icon [name]="(chef['review'] >= 2)?'star':'ios-star-outline'"></ion-icon>
+                  <ion-icon [name]="(chef['review'] >= 3)?'star':'ios-star-outline'"></ion-icon>
+                  <ion-icon [name]="(chef['review'] >= 4)?'star':'ios-star-outline'"></ion-icon>
+                  <ion-icon [name]="(chef['review'] >= 5)?'star':'ios-star-outline'"></ion-icon>
+                  </span>
+          </ion-col>
+          <ion-col col-7>                     
+          <span class="name">{{ chef['fname'] }} {{ chef['lname'] }}</span>            
+          <p *ngIf="chef['about_me']!==''">{{ chef['about_me'] }} </p>
+          <p *ngIf="chef['about_me']==''">Lorem Ipsum is simply dummy text of the printing and </p>
+          </ion-col>
+          <ion-col col-2>
+            <div class="distance" float-right>
+              <ion-icon class="border-bottom">
+               <img src="img/user-6.png" />
+            </ion-icon>
+            <span class="border-bottom">
+              {{ chef['distance'] }} km
+            </span>
+            </div>
+          </ion-col>
+        </ion-row>
+        </ion-item>
+  </ion-list>
+</ion-content>

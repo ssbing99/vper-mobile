@@ -1,0 +1,56 @@
+stripe-element {
+  /**
+  * The CSS shown here will not be introduced in the Quickstart guide, but shows
+  * how you can use CSS to style your Element's container.
+  */
+  .StripeElement {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+
+  #card-errors {
+    color: #fa755a;
+    margin-left: 5%;
+  }
+
+  .footer{
+    button.payment-button{
+        height: 30px;
+        font-size: 1em;
+        background: #638fb5;
+    }
+    &.f-none{                   
+        button.payment-button{                        
+            width:100%;
+        }
+    }
+  }
+
+  .payment-item {
+    margin-top: 5%;
+
+    .label-ios, .label-md {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}

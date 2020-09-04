@@ -1,0 +1,65 @@
+<!--
+  Generated template for the ChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-grid no-padding padding-horizontal>
+    <ion-row justify-content-center align-items-center>
+      <ion-col col-6 no-padding (click)="closeMenu()">
+        <ion-icon class="arrow-left">
+          <img src="img/return-left.png" alt="">
+        </ion-icon>
+      </ion-col>
+      <ion-col col-6 no-padding text-right>
+        <button  *ngIf="view_type!=='past'" ion-button small round class="btn-small" (click)="openHirePage()">{{ "chat.hire" | translate }}</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-header>
+<ion-content class="section chat">
+  <h1>Chat</h1>
+  <ion-list margin-top *ngIf="chatData">
+      <!-- <ion-infinite-scroll position="top" threshold="1%" (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll> -->
+    <ion-item *ngFor="let chat of chatData;" class="{{ (chat['sentby']==user['id'])?'user-from':'' }} item-md item-ios item-wp">
+     
+      <ion-avatar *ngIf="chat['sentby']!==user['id']" item-start float-left>
+        <img src="img/avatar-3.png" *ngIf="!toUserImage">
+        <img src="{{ toUserImage }}" *ngIf="toUserImage">
+      </ion-avatar>
+      <ion-avatar item-end *ngIf="chat['sentby']==user['id']">
+          <img src="img/avatar-3.png" *ngIf="!fromUserImage">
+          <img src="{{ fromUserImage }}" *ngIf="fromUserImage">
+      </ion-avatar>
+      <div class="talk-bubble tri-right {{ (chat['sentby']==user['id'])?'right-top':'left-top' }}">
+        <div class="talktext">
+          <p>{{ chat['message'] }} </p>
+        </div>
+        <div class="talk-timestamp">
+          <p>{{ chat?.timestamp | date: 'yyyy-MM-dd HH:mm' }}</p>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="!chatData" margin-top>
+    <ion-item>
+      <h3>There is no chat.</h3>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer class="form2" *ngIf="view_type!=='past'">
+  <ion-item>
+    <ion-input *ngIf="view_type!=='past'" type="text" placeholder="Type someting for here" [(ngModel)]="chatText" name="chatText"></ion-input>
+    <ion-label *ngIf="view_type!=='past'">
+      <button ion-button small round class="btn-small" (click)="StartChat()">Send</button>
+    </ion-label>
+  </ion-item>
+</ion-footer>

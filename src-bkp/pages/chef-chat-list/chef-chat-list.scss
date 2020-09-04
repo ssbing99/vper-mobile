@@ -1,0 +1,20 @@
+page-chef-chat-list {
+.box{
+    .item{
+        &.item-md,
+        &.item-ios,
+        &.item-wp{
+            margin: 10px 0;
+            .item-inner{
+                padding:5px 10px;
+            }
+        }
+    }
+    ion-icon{
+        padding: 5px;
+        img{
+            height: 32px;
+        }
+    }
+}
+}

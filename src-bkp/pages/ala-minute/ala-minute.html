@@ -1,0 +1,30 @@
+<!--
+  Generated template for the AlaMinutePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>Ala Minute</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+<ion-content padding>
+   <div class="vertical-center">
+     <ion-grid>
+        <ion-icon class="logo" text-center>
+            <img src="img/logo.png" />
+        </ion-icon>
+        <ion-row>
+          <ion-col col-6 padding-right>
+              <button ion-button block outline (click)="openPage('minute')">À la Minute</button>
+          </ion-col>
+          <ion-col col-6 padding-left>
+              <button ion-button block outline class="active"  (click)="openPage('plane')">Booking</button>
+          </ion-col>
+        </ion-row>
+     </ion-grid>
+   </div>
+</ion-content>

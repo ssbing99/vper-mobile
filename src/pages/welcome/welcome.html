@@ -1,0 +1,33 @@
+<!--
+  Generated template for the WelcomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar no-padding>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>      
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content class="section">  
+  <ion-grid>
+      <ion-icon class="logo" text-center>
+          <img src="img/logo.png" />
+      </ion-icon>
+    <ion-icon class="icon3">
+        <img src="img/welcome.png" /> 
+    </ion-icon>    
+    <h1>{{ "welcome.title" | translate }}</h1>
+    <div class="box-shadow" margin-top>
+        <p>{{ "welcome.p1" | translate }}.</p>
+        <p>{{ "welcome.p2" | translate }}.
+          {{ "welcome.p3" | translate }}.</p>
+         <p>{{ "welcome.p4" | translate }}.
+          {{ "welcome.p5" | translate }}.</p>
+    </div>
+  </ion-grid>
+</ion-content>

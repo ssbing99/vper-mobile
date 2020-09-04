@@ -1,0 +1,72 @@
+<ion-header class="layout2">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+        <ion-icon class="icon3">
+            <img  src="img/cap.png" alt="">
+        </ion-icon>
+        {{ "checf_choice.head" | translate }}</ion-title>
+  </ion-navbar> 
+</ion-header>
+
+<ion-content class="box section">
+  <ion-grid>
+      <ion-row>
+        <ion-col  text-right>
+            <button ion-button small round class="btn-small" (click)="addDishes()">{{ "checf_choice.add_dish" | translate }}</button>
+        </ion-col>
+      </ion-row>
+
+      <div class="row header">
+          <div class="col border-right" text-center>
+            <span class="border-bottom">{{ "checf_choice.dishes" | translate }}</span>
+          </div>
+          <div class="col" text-center>         
+            <span class="border-bottom">{{ "checf_choice.action" | translate }}</span>
+          </div>
+      </div>
+
+    <ion-list>
+      <ion-item-group>
+        <ion-item *ngFor="let dish of checfDish;let i = index">
+          <ion-label>
+            <ion-row>
+            <ion-col col-6>
+              <ion-icon class="icon-circle">
+                <img [src]="dish['image']" alt="" *ngIf="dish['image']">
+                <img src="img/50.png" alt="" *ngIf="!dish['image']">
+              </ion-icon>
+              <span class="name">
+                {{ dish['name'] }}
+              </span>
+            </ion-col>
+            <ion-col col-6 text-right>
+                <button class="button2" ion-button small icon-left no-padding (click)="editDishes(dish['id'],i)">
+                    <ion-icon class="icon2">
+                        <img src="img/create.png" /> 
+                    </ion-icon> 
+                    <!-- <span class="text">Edit</span> -->
+                  </button>                
+                    <button class="button2" ion-button small icon-left no-padding (click)="deleteDish(dish['id'],i)">
+                    <ion-icon class="icon2">                   
+                            <img style="width:13px;" src="img/trash.png" /> 
+                        </ion-icon> 
+                        <!-- <span class="text">Delete</span> -->
+                      </button>
+                    </ion-col>
+                  </ion-row>
+          </ion-label>
+
+        </ion-item>
+      
+
+      </ion-item-group>
+      <ion-infinite-scroll (ionInfinite)="getMoreDishes($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+
+  </ion-grid>
+</ion-content>

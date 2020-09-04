@@ -1,0 +1,91 @@
+page-our-chefs {
+    .header{
+        &.layout2{
+            .toolbar-md,
+            .toolbar-ios,
+            .toolbar-wp{
+                min-height: 56px !important;
+                .toolbar-title-md,
+                .toolbar-title-ios,
+                .toolbar-title-wp{
+                    margin-top: 0px !important;
+                }
+            }
+        }
+    }    
+    .searchbar-md,
+    .searchbar-ios,
+    .searchbar-wp{
+        .searchbar-input{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .searchbar-search-icon{
+            left:10px;
+        }
+        .searchbar-md-cancel,
+        .searchbar-ios-cancel,
+        .searchbar-wp-cancel{
+            left:10px;
+        }
+    }
+    .comment-box{
+        .col + .col{
+           padding-top: 10px;
+           padding-left: 0px;
+        }
+        .item-md,
+        .item-ios,
+        .item-wp{ 
+            text-align: center;  
+            background: rgba(234,232,232,.5);
+            border:1px solid #fff;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71); 
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71); 
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71);
+                        .name{
+                font-size:1.6rem;
+            }  
+            ion-avatar{
+                img{
+                    margin: 0 auto;
+                    width:50px;
+                    height:50px;
+                    border:0px;
+                }
+            }       
+            p{
+                margin-bottom: 0px;  
+                font-size: 1.3rem;             
+            }            
+            ion-avatar[item-start]{
+                margin-right: 0px;
+            }
+            .distance{
+                span{
+                    display: block;
+                    font-size: 1.2rem;
+                }
+            }
+            .border-bottom{
+                border-color: #959494;
+                border-width: 2px;
+            }
+            .icon{
+                text-align: center;
+                img{
+                    width:20px;
+                }
+            }
+            .rating{
+                .icon{
+                    font-size: .9rem;
+                }
+            }
+           
+            
+        }
+    }
+}

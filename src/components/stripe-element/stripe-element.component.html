@@ -1,0 +1,22 @@
+<form action="/charge" method="post" id="payment-form">
+  <div class="form-row">
+    <div id="card-element">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+
+    <ion-item no-lines *ngIf="showSaveCard">
+      <ion-label>{{ "hire_chef.payment.save_card_use" | translate }}</ion-label>
+      <ion-checkbox name="saveCard" [(ngModel)]="saveCard"></ion-checkbox>
+    </ion-item>
+
+    <!-- Used to display form errors. -->
+    <div id="card-errors" role="alert"></div>
+  </div>
+
+  <ion-item no-lines class="footer f-none payment-item">
+    <button ion-button class="secondry payment-button">
+      <span *ngIf="submitBtnText">{{submitBtnText}}</span>
+      <span *ngIf="!submitBtnText">{{ "hire_chef.payment.pay" | translate }} {{ totalAmount }}NoK</span>
+    </button>
+  </ion-item>
+</form>

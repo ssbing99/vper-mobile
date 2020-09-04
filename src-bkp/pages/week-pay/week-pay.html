@@ -1,0 +1,50 @@
+<!--
+  Generated template for the WeekPayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-padding>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>      
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="section">  
+<ion-grid>
+    <ion-icon class="logo" text-center>
+        <img src="img/logo.png" />
+    </ion-icon>
+  <ion-icon class="icon3">
+      <img src="img/hand.png" /> 
+  </ion-icon>    
+  <h1>2nd Week Pay</h1>
+  <div class="box-shadow" margin-top>
+      <p>{{ "2_week_pay.p1" | translate }}</p>
+  </div>
+  </ion-grid>
+  <ion-grid class="px-2" text-center padding-bottom>
+  <div class="row header">
+      <div class="col border-right">
+        <span class="border-bottom">Period</span>
+      </div>
+      <div class="col" text-center>         
+        <span class="border-bottom">Total</span>
+      </div>
+  </div>
+  <div *ngIf="weekPay!==undefined && weekPay.length > 0">
+    <div class="row" *ngFor="let pay of weekPay">
+      <div class="col">{{ pay['startDate'] }} - {{ pay['endDate'] }}</div>
+      <div class="col">{{ pay['total'] }}kr</div>      
+    </div>
+  </div>
+  <div *ngIf="weekPay!==undefined && weekPay.length <= 0">
+    <div class="row">
+      No Record Found
+    </div>
+  </div>
+</ion-grid>
+</ion-content>

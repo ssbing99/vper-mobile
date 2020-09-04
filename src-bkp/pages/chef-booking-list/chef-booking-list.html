@@ -1,0 +1,72 @@
+<!--
+  Generated template for the BookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ "checf_booking_list.head" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="box">
+<ion-grid>
+  <ion-row class="column">
+   <ion-col col-6 (click)="getData('recent')">    
+          <ion-item [attr.class]="total_income"> 
+            <ion-label>
+                <ion-icon>
+                    <img  src="img/calendar.png" alt="">
+                  </ion-icon>
+                <span>
+                    {{ "checf_booking_list.current" | translate }}
+                </span>        
+            </ion-label>                                 
+            </ion-item>
+   </ion-col>
+   <ion-col col-6 (click)="getData('past')">    
+      <ion-item [attr.class]="class_nok" class="item item-block item-ios"> 
+          <ion-label>
+                <ion-icon>
+                  <img  src="img/calendar.png" alt="">
+                </ion-icon>
+              <span>                  
+                {{ "checf_booking_list.past" | translate }}
+              </span>        
+          </ion-label>                                 
+          </ion-item>
+   </ion-col>
+  </ion-row>
+  <ion-list *ngIf="showData">
+      <ion-item-group>
+          <ion-item *ngFor="let booking of currentBookingData">
+              <ion-label>
+                    <ion-icon class="icon-circle" (click)="openBookingDetail(booking)">
+                        <img src="img/user-2.png" alt="" *ngIf="!booking['user_image']">
+                        <img src="{{ booking['user_image'] }}" alt="" *ngIf="booking['user_image']">
+                  </ion-icon>
+                  <span class="name"(click)="openBookingDetail(booking)">
+                      {{ booking['fname'] }}  
+                  </span>
+                  <span class="date"(click)="openBookingDetail(booking)">
+                      {{ booking['book_date'] }}
+                  </span>
+                  <span class="price">
+                      {{ booking['total_price'] }}Nok
+                  </span>
+                  <ion-icon class="icon2" (click)="openChat(booking['user_id'],booking['id'])">
+                      <img src="img/user-2.png" alt="">
+                    </ion-icon>
+                </ion-label>
+          </ion-item>
+         
+      </ion-item-group>
+  </ion-list>     
+
+</ion-grid>
+</ion-content>

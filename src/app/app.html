@@ -1,0 +1,63 @@
+<ion-menu [content]="content" *ngIf="isLoginUser">
+
+  <ion-header>
+    <!-- <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar> (click)="editProfile()"  (click)="profileManagement()"-->      
+  </ion-header>
+
+  <ion-content has-header="true">
+      <div id="profile-dashboard" padding text-right>
+          <ion-icon (click)="editProfile()">
+             <a href="#"><img src="img/create.png"></a>
+          </ion-icon>
+          <div id="profile-info" class="icon-circle" text-center>
+            <img id="profile-image" src="img/avatar-3.png"  (click)="profileManagement()" *ngIf="!user['user_image']">
+            <img id="profile-image" src="{{ user['user_image'] }}"  (click)="profileManagement()" *ngIf="user['user_image']">
+            <h4 id="profile-name">{{ user['fname'] }}</h4>         
+          </div>
+        </div>
+
+    <ion-list>
+      <ion-item ion-item *ngFor="let p of pages; let i=index" (click)="toggleLevel1('idx'+i)" [ngClass]="{active: isLevel1Shown('idx'+i)}">
+        <div *ngIf="p.ismulti">
+          <span>
+            <ion-icon color="success" item-left *ngIf="p.icon" padding-right>
+              <img [src]="p.icon" alt="">
+            </ion-icon>
+            {{p.title}}
+          </span>
+          <ion-icon color="success" item-right [name]="isLevel1Shown('idx'+i) ? 'ios-arrow-down' : 'ios-arrow-forward'" *ngIf="p.ismulti" class="right"></ion-icon>
+          <ion-list *ngIf="isLevel1Shown('idx'+i)" class="levvel2List">
+            <ion-item *ngFor="let p1 of p.nestedObject; let i2=index" (click)="toggleLevel2('idx'+i+'idx'+i2)" [ngClass]="{active: isLevel2Shown('idx'+i+'idx'+i2)}" (click)="openPage(p1)">
+              <ion-icon color="success" item-left *ngIf="p1.icon" >
+                <img [src]="p1.icon" alt="">
+              </ion-icon> 
+              {{ p1.title }}
+            </ion-item>
+          </ion-list>
+        </div>
+        <div *ngIf="!p.ismulti" (click)="openPage(p)">
+            <span (click)="openPage(p)">
+                <ion-icon color="success" item-left *ngIf="p.icon" padding-right>
+                  <img [src]="p.icon" alt="">
+                </ion-icon>
+                {{p.title}}
+              </span>
+          
+        </div>
+      </ion-item>
+      <ion-item (click)="logOut()" *ngIf="isLoginUser" class="logout">
+        <ion-icon class="icon3" padding-horizontal>
+            <img  src="img/power.png" alt="">
+        </ion-icon>
+          {{ "menu.logout" | translate }}
+      </ion-item>
+    </ion-list>    
+  </ion-content>
+  <ion-footer text-center>
+    <p>Copyright &#174; Yperkokk</p>
+  </ion-footer>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

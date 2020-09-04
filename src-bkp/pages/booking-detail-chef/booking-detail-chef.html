@@ -1,0 +1,84 @@
+<!--
+  Generated template for the BookingDetailChefPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ "booking_detail_checf.head" | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row class="booking_row">
+      <ion-col col-md-12>
+        <h3>
+          {{ "booking_detail_checf.address_detail" | translate }}
+        </h3>
+        <div class="address">
+          {{ bookingDetail['order']['address'] }} , {{ bookingDetail['order']['cityname'] }},{{ bookingDetail['order']['country_name']
+          }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="booking_row">
+      <ion-col col-md-12 *ngIf="bookingDetail['dish']!==undefined">
+        <h3>{{ "booking_detail_checf.dish_detail" | translate }}</h3>
+        <div class="dish" *ngIf="bookingDetail['order']['booking_type']==1">
+          <div *ngFor="let dish of bookingDetail['dish'];let i=index">
+           {{ (i)+1 }}.  {{ dish['name'] }}
+          </div>
+        </div>
+        <div class="dish" *ngIf="bookingDetail['order']['booking_type']==2">
+            <div>
+                {{ "hire_chef.step2.second_step_title2" | translate }}
+              1. {{ bookingDetail['order']['foodbox_menu'] }}
+              2. {{ bookingDetail['order']['foodbox_menu_company'] }}
+            </div>
+          </div>
+          <div class="dish" *ngIf="bookingDetail['order']['booking_type']==3">
+              <div>
+                  {{ "hire_chef.step1.other" | translate }}
+                  <br/>
+              {{ bookingDetail['order']['other'] }}
+              </div>
+            </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="booking_row">
+      <ion-col col-md-12 *ngIf="bookingDetail['dish'].length > 0">
+        <h3>{{ "booking_detail_checf.customer.title" | translate }}</h3>
+        <div class="dish">
+          <div>{{ "booking_detail_checf.customer.name" | translate }}: {{ bookingDetail['user']['fname'] }} {{ bookingDetail['user']['lname'] }}</div>
+          <div>{{ "booking_detail_checf.customer.email" | translate }}: {{ bookingDetail['user']['email'] }}</div>
+          <div>{{ "booking_detail_checf.customer.phone" | translate }}: {{ bookingDetail['order']['phone'] }}</div>
+          <div>{{ "booking_detail_checf.customer.book_date" | translate }}: {{ bookingDetail['order']['book_date'] }}</div>
+          <div>{{ "booking_detail_checf.customer.book_time" | translate }}: {{ bookingDetail['order']['book_time'] }}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="booking_row">
+        <ion-col col-md-12 *ngIf="allDetails.total_person!==undefined">
+          <h3>{{ "hire_chef.person_eat" | translate }}</h3>
+          <div class="dish" *ngFor="let person of allDetails.total_person;let n=index">
+            <div *ngIf="person!==0">
+              {{ "hire_chef.step3.days" | translate }} {{ n+1 }}. {{ person }} Person
+            </div>
+          </div>
+        </ion-col>
+    </ion-row>
+    <ion-row class="booking_row">
+        <ion-col col-md-12 *ngIf="bookingDetail['order']['alergies']!==''">
+          <h3>{{ "hire_chef.alergy" | translate }}</h3>
+          <div class="dish">
+            <div>{{ bookingDetail['order']['alergies'] }}</div>
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

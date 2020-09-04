@@ -1,0 +1,61 @@
+<!--
+  Generated template for the AddDishesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar no-padding>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>      
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="section"> 
+  <ion-icon class="icon3">
+      <img src="img/user-3-black.png" /> 
+  </ion-icon> 
+  <h1>{{ "checf_choice.add_dish" | translate }}</h1>
+  <form class="form alt" text-center margin-top> 
+    <h3><span class="border-bottom">{{ "dishPage.dish_name" | translate }}</span></h3>
+    <div class="dish-content">
+      <ion-item>       
+          <ion-input type="text" placeholder='{{ "dishPage.dish_name" | translate }}' [(ngModel)]="dishName" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+    </div>
+    <h3>
+      <span class="border-bottom">{{ "dishPage.show_on_profile.title" | translate }}</span>
+    </h3>
+    <div class="dish-content">
+      <ion-item>
+        <ion-select interface="popover" [(ngModel)]="status" [ngModelOptions]="{standalone: true}">
+          <ion-option value="1">{{ "dishPage.show_on_profile.yes" | translate }}</ion-option>
+          <ion-option value="0">{{ "dishPage.show_on_profile.no" | translate }}</ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <h3>
+      <span class="border-bottom">{{ "dishPage.gr_detail" | translate }}</span>
+    </h3>
+    <div class="dish-content">
+      <ion-item>
+        <ion-textarea rows="3" maxLength="500" placeholder='{{ "dishPage.gr_placeholder" | translate }}' [(ngModel)]="grocerie" [ngModelOptions]="{standalone: true}">{{ grocerie }}</ion-textarea>
+      </ion-item>
+    </div>
+    <h3><span class="border-bottom">{{ "dishPage.dish_image" | translate }}</span></h3>
+    <div class="dish-content">
+        <ion-icon class="upload icon-circle">
+            <img  src="img/Image1.png" alt="" *ngIf="!showDishImage">
+            <img  [src]="showDishImage" alt="" *ngIf="showDishImage">
+        </ion-icon>
+        <ion-icon class="icon3 icon-circle" (click)="getImage()">
+            <a href="#"><img  src="img/upload.png" alt=""></a>
+        </ion-icon>
+        <h5>{{ "dishPage.up_image" | translate }}</h5>
+        <button ion-button type="button" color="secondary" block (click)="saveDishes()">{{ "submit" | translate }}</button> 
+    </div>
+
+</form>
+</ion-content>
